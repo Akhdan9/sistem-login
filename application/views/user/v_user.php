@@ -11,6 +11,12 @@
         </div>
 
         <div class="content mt-3">
+        <div class="row">
+        <div class="col-lg-8">
+            <?= $this->session->flashdata('message'); ?>
+        </div>
+
+        </div>
 
         <div class="card mb-3" style="max-width: 540px;">
         <div class="row no-gutters">

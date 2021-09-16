@@ -13,25 +13,14 @@
  <script src="<?= base_url(); ?>assets/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
  <script src="<?= base_url(); ?>assets/svendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
  <script>
-     (function($) {
-         "use strict";
+     $('.custom-file-input').on('change', function() {
+         let filename = $(this).val().split('\\').pop();
+         $(this).next('.custom-file-label').addClass("selected").html(filename)
+     });
 
-         jQuery('#vmap').vectorMap({
-             map: 'world_en',
-             backgroundColor: null,
-             color: '#ffffff',
-             hoverOpacity: 0.7,
-             selectedColor: '#1de9b6',
-             enableZoom: true,
-             showTooltip: true,
-             values: sample_data,
-             scaleColors: ['#1de9b6', '#03a9f5'],
-             normalizeFunction: 'polynomial'
-         });
-     })(jQuery);
- </script>
 
- <script>
+
+
      $('.form-check-input').on('click', function() {
          const id_menu = $(this).data('menu');
          const id_role = $(this).data('role');
@@ -44,7 +33,7 @@
                  id_role: id_role
              },
              success: function() {
-                 document.location.href = <?= base_url('admin/roleaccess/'); ?> + id_role;
+                 document.location.href = "<?= base_url('admin/roleaccess/') ?>" + id_role;
              }
          });
      });
