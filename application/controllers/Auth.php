@@ -32,8 +32,6 @@ class Auth extends CI_Controller {
         }
 
     }
-
-    
     
     private function _login()
     {
@@ -78,6 +76,8 @@ class Auth extends CI_Controller {
             redirect('auth');
         }
     }
+
+   
     
     public function logout(){
         $this->session->unset_userdata('email');
