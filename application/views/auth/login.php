@@ -24,7 +24,7 @@
                         <div class="checkbox">
 
                             <label class="pull-center">
-                                <a href="<?= base_url('forgot'); ?>">Forgotten Password?</a>
+                                <a href="<?= base_url('register/forgotpassword'); ?>">Forgotten Password?</a>
                             </label>
 
                         </div>

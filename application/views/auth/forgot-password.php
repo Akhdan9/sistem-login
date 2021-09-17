@@ -10,7 +10,7 @@
                     </div>
                     <?= $this->session->flashdata('message'); ?>
 
-                    <form method="post" action="<?= base_url('forgot'); ?>">
+                    <form method="post" action="<?= base_url('register/forgotpassword'); ?>">
                         <div class="form-group">
                             <label>Email address</label>
                             <input type="text" class="form-control" id="email" name="email" placeholder="Email" value="<?= set_value('email'); ?>">
