@@ -29,10 +29,19 @@ class Admin extends CI_Controller {
 
         $data['role'] = $this->db->get('role')->result_array();
 
-        $this->load->view('template/header', $data);
-        $this->load->view('template/topbar', $data);
-        $this->load->view('admin/v_role', $data);
-        $this->load->view('template/footer');
+        $this->form_validation->set_rules('role', 'role', 'required');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('template/header', $data);
+            $this->load->view('template/topbar', $data);
+            $this->load->view('admin/v_role', $data);
+            $this->load->view('template/footer');
+        } else {
+            $this->db->insert('role', ['role' => $this->input->post('role')]);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+                    Success add role</div>');
+            redirect('admin/role');
+        }
+
     }
 
     public function roleaccess($id_role)
@@ -70,6 +79,15 @@ class Admin extends CI_Controller {
 
         $this->session->set_flashdata('message', '<div class="alert alert-primary" role="alert">
         Access Changed</div>');
+    }
+
+    public function deleteRole($id)
+    {
+        $this->db->delete('role', ['id_role' => $id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+        Role has been deleted
+        </div>');
+        redirect('admin/role');
     }
 
 

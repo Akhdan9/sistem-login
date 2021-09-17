@@ -40,4 +40,13 @@ class Submenu extends CI_Controller {
 
     }
 
+    public function deleteSub($id_sub)
+    {
+        $this->db->delete('sub_menu', ['id_sub' => $id_sub]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+        Submenu has been deleted
+        </div>');
+        redirect('submenu');
+    }
+
 }

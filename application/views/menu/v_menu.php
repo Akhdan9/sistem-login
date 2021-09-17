@@ -37,8 +37,8 @@
                                                     <th scope="row"><?= $i ?></th>
                                                     <td><?= $m['menu'] ?></td>
                                                     <td>
-                                                        <a href="" class="badge badge-primary">Edit</a>
-                                                        <a href="" class="badge badge-danger">Delete</a>
+                                                        
+                                                        <a href="<?= base_url('menu/deleteMenu/') . $m['id_menu'] ?>" class="badge badge-danger">Delete</a>
                                                     </td>
                                                 </tr>
                                                 <?php $i++; ?>

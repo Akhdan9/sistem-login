@@ -63,7 +63,7 @@ class Register extends CI_Controller {
             'protocol'  => 'smtp',
             'smtp_host' => 'ssl://smtp.googlemail.com',
             'smtp_user' => 'example@gmail.com',
-            'smtp_pass' => 'password',
+            'smtp_pass' => '12345',
             'smtp_port' => 465,
             'mailtype'  => 'html',
             'charset'   => 'utf-8',
@@ -77,24 +77,24 @@ class Register extends CI_Controller {
         $this->email->from('example@gmail.com', 'Your name'); 
         $this->email->to($this->input->post('email'));
 
-        if($type == 'verify'){
+        if ($type == 'verify'){
 
             $this->email->subject('Account Verification');
             $this->email->message('Click this link to verify your account : <a href="'. base_url() . 
             'register/verify?email=' . $this->input->post('email') . 
             '&token=' . urlencode($token) .'">Activate</a>');
-        } else if($type == 'forgot'){
+
+        } else if ($type == 'forgot'){
             $this->email->subject('Reset Password');
             $this->email->message('Click this link to Reset your password : <a href="' . base_url() .
             'register/resetpassword?email=' . $this->input->post('email') .
-            '&token=' . urlencode($token) . '">Reset password</a>');
+            '&token=' . urlencode($token) .'">Reset password</a>');
         }
 
         if($this->email->send()){
             return true;
         } else {
             echo $this->email->print_debugger();
-            die;
         }
     }
 

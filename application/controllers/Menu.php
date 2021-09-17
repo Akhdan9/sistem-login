@@ -33,6 +33,15 @@ class Menu extends CI_Controller {
         }
     }
 
+    public function deleteMenu($id)
+    {
+        $this->db->delete('menu', ['id_menu' => $id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+        Menu has been deleted
+        </div>');
+        redirect('menu');
+    }
+
    
 
 

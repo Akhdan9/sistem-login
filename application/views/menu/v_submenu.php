@@ -14,7 +14,7 @@
 
         <div class="content mt-3">
             <div class="content mt-3">
-                
+
                 <?php if (validation_errors()) : ?>
                     <div class="alert alert-danger" role="alert">
                         <?= validation_errors(); ?>
@@ -52,8 +52,8 @@
                                                     <td><?= $sm['icon'] ?></td>
                                                     <td><?= $sm['is_active'] ?></td>
                                                     <td>
-                                                        <a href="" class="badge badge-primary">Edit</a>
-                                                        <a href="" class="badge badge-danger">Delete</a>
+                                                        
+                                                        <a href="<?= base_url('submenu/deleteSub/') . $sm['id_sub'] ?>" class="badge badge-danger">Delete</a>
                                                     </td>
                                                 </tr>
                                                 <?php $i++; ?>
